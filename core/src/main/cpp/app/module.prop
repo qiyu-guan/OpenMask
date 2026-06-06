@@ -1,0 +1,7 @@
+id=OpenMaskRootCtrl
+name=OpenMask ROOT工具箱
+version=1.0
+author=Null-Sector
+desc=面具开关ROOT|机型伪装|kprobe|boot修复|selinux|应用隔离
+updateJson=
+config=root_enable
