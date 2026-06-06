@@ -41,7 +41,8 @@ int cache_main(void)
     clean_om_cache();
     FILE *log = fopen("/data/openmask/log/cache.log","a");
     if(log){
-        fprintf(log,"[CACHE] %lld:缓存清理执行完毕\n",(long long)time(NULL));
+        time_t now = time(NULL);
+        fprintf(log,"[CACHE] %ld:缓存清理执行完毕\n",now);
         fclose(log);
     }
     return 0;
