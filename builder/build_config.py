@@ -1,0 +1,9 @@
+APP_ID = "com.openmask"
+VERSION_NAME = "1.0"
+VERSION_CODE = 1
+MIN_SDK = 21
+TARGET_SDK = 33
+OUT_APK = "out/OpenMask-release.apk"
+OUT_ZIP = "out/OpenMask_Magisk.zip"
+RES_ROOT = "res"
+SRC_ROOT = "src"

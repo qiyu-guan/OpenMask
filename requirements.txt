@@ -1,0 +1,4 @@
+androguard==4.1.2
+pycryptodome
+pillow
+lxml
