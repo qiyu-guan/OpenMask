@@ -4,11 +4,11 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include <time.h>
 
 #define CACHE_SYS_PATH "/proc/sys/vm/drop_caches"
 #define OM_CACHE_DIR "/data/openmask/cache/"
 
-//清空Linux内核页缓存、 dentries、inode缓存
 static int drop_kernel_cache(void)
 {
     int fd = open(CACHE_SYS_PATH,O_WRONLY);
@@ -17,7 +17,6 @@ static int drop_kernel_cache(void)
     close(fd);
     return 0;
 }
-//清空项目自定义缓存目录
 static int clean_om_cache(void)
 {
     DIR *dir = opendir(OM_CACHE_DIR);
@@ -36,14 +35,13 @@ static int clean_om_cache(void)
     return 0;
 }
 
-//对外主入口，om_sud定时调用
 int cache_main(void)
 {
     drop_kernel_cache();
     clean_om_cache();
     FILE *log = fopen("/data/openmask/log/cache.log","a");
     if(log){
-        fprintf(log,"[CACHE] %lld:缓存清理执行完毕\n",time(NULL));
+        fprintf(log,"[CACHE] %lld:缓存清理执行完毕\n",(long long)time(NULL));
         fclose(log);
     }
     return 0;
